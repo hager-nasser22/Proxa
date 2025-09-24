@@ -676,7 +676,7 @@ const Services = ({ lang }) => {
                   href="#contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`mt-6 w-full text-center block bg-gradient-to-r ${service.gradient} text-white py-3 px-6 rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300`}
+                  className={`relative z-10 mt-6 w-full text-center block bg-gradient-to-r ${service.gradient} text-white py-3 px-6 rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300`}
                 >
                   {getTranslatedContent('services.ctaButton', lang)}
                 </motion.a>
