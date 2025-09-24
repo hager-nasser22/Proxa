@@ -903,7 +903,7 @@ const Booking = ({ lang }) => {
         >
           <iframe
             src="https://cal.com/hager-nasser-woynen/secret"
-            className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] h-[350px] sm:h-[500px] md:h-[550px] lg:h-[650px] rounded-2xl shadow-lg"
+            className="w-full sm:w-[90%] md:w-[80%] lg:w-[90%] h-[350px] sm:h-[500px] md:h-[550px] lg:h-[750px] rounded-2xl shadow-lg"
             frameBorder="0"
             style={{
               border: "0",
@@ -988,152 +988,161 @@ const Footer = ({ lang }) => {
 
   return (
     <footer className="bg-gray-900 dark:bg-zinc-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          <motion.div variants={itemVariants} className="lg:col-span-2">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-3xl font-bold gradient-text mb-4 "
-            >
-              BROCSA
-            </motion.div>
-            <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
-              {getTranslatedContent('footer.description', lang)}
-            </p>
-            
-            <div className="flex space-x-4 rtl:space-x-reverse">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 bg-gray-800 dark:bg-zinc-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-200"
-                >
-                  <span className="text-sm font-semibold">{social.icon}</span>
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-100px' }}
+      className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left"
+    >
+      {/* Logo + Description */}
+      <motion.div variants={itemVariants} className="lg:col-span-2 flex flex-col items-center md:items-start">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          className="text-3xl font-bold gradient-text mb-4"
+        >
+          BROCSA
+        </motion.div>
+        <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
+          {getTranslatedContent('footer.description', lang)}
+        </p>
 
-          <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-semibold mb-6">{getTranslatedContent('footer.quickLinks', lang)}</h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.key}>
-                  <motion.a
-                    href={link.href}
-                    whileHover={{ x: 5 }}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
-                  >
-                    {link.text}
-                  </motion.a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-semibold mb-6">{getTranslatedContent('footer.contactInfo', lang)}</h3>
-            <div className="space-y-3 text-gray-400">
-              <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                <svg className="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span>{getTranslatedContent('footer.contactEmail', lang)}</span>
-              </div>
-              <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                <svg className="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span>{getTranslatedContent('footer.contactPhone', lang)}</span>
-              </div>
-              <div className="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg className="w-5 h-5 text-primary-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span>{getTranslatedContent('footer.contactAddress', lang)}</span>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
-        >
-          <motion.p variants={itemVariants} className="text-gray-400 text-sm mb-4 md:mb-0">
-            {getTranslatedContent('footer.copyright', lang)}
-          </motion.p>
-          <motion.div variants={itemVariants} className="flex items-center space-x-2 rtl:space-x-reverse text-gray-400 text-sm">
-            <span>{getTranslatedContent('footer.madeWith', lang)}</span>
-            <motion.span
-              whileHover={{ scale: 1.2, rotate: 360 }}
-              className="text-primary-500 font-semibold"
+        {/* Socials */}
+        <div className="flex justify-center md:justify-start space-x-4 rtl:space-x-reverse">
+          {socialLinks.map((social) => (
+            <motion.a
+              key={social.name}
+              href={social.href}
+              whileHover={{ scale: 1.2, y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-10 h-10 bg-gray-800 dark:bg-zinc-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-200"
             >
-              ❤️
-            </motion.span>
-          </motion.div>
+              <span className="text-sm font-semibold">{social.icon}</span>
+            </motion.a>
+          ))}
+        </div>
+      </motion.div>
 
-        </motion.div>
-      </div>
-    </footer>
+      {/* Quick Links */}
+      <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start">
+        <h3 className="text-lg font-semibold mb-6">{getTranslatedContent('footer.quickLinks', lang)}</h3>
+        <ul className="space-y-3">
+          {quickLinks.map((link) => (
+            <li key={link.key}>
+              <motion.a
+                href={link.href}
+                whileHover={{ x: 5 }}
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                {link.text}
+              </motion.a>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+
+      {/* Contact Info */}
+      <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start">
+        <h3 className="text-lg font-semibold mb-6">{getTranslatedContent('footer.contactInfo', lang)}</h3>
+        <div className="space-y-3 text-gray-400">
+          <div className="flex items-center justify-center md:justify-start space-x-3 rtl:space-x-reverse">
+            <svg className="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>{getTranslatedContent('footer.contactEmail', lang)}</span>
+          </div>
+          <div className="flex items-center justify-center md:justify-start space-x-3 rtl:space-x-reverse">
+            <svg className="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>{getTranslatedContent('footer.contactPhone', lang)}</span>
+          </div>
+          <div className="flex items-start justify-center md:justify-start space-x-3 rtl:space-x-reverse">
+            <svg className="w-5 h-5 text-primary-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>{getTranslatedContent('footer.contactAddress', lang)}</span>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+
+    {/* Bottom Bar */}
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-center md:justify-between items-center text-center"
+    >
+      <motion.p variants={itemVariants} className="text-gray-400 text-sm mb-4 md:mb-0">
+        {getTranslatedContent('footer.copyright', lang)}
+      </motion.p>
+      <motion.div variants={itemVariants} className="flex items-center space-x-2 rtl:space-x-reverse text-gray-400 text-sm">
+        <span>{getTranslatedContent('footer.madeWith', lang)}</span>
+        <motion.span
+          whileHover={{ scale: 1.2, rotate: 360 }}
+          className="text-primary-500 font-semibold"
+        >
+          ❤️
+        </motion.span>
+      </motion.div>
+    </motion.div>
+  </div>
+</footer>
+
   );
 };
 
 // --- Floating WhatsApp Button ---
 const WhatsAppButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const shouldBeVisible = scrollY > 300; // Adjust scroll threshold as needed
-      setIsVisible(shouldBeVisible);
-    };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const shouldBeVisible = scrollY > 200; // إظهار أسرع على الموبايل
+      setIsVisible(shouldBeVisible);
+    };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  return (
-    <motion.a
-      href="https://wa.me/+967775616333" // Replace with your WhatsApp number
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 p-3 md:p-4 rounded-full bg-green-500 text-white shadow-lg transform"
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ 
-        scale: isVisible ? 1 : 0, 
-        opacity: isVisible ? 1 : 0,
-        y: isVisible ? 0 : 50
-      }}
-      transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      whileHover={{ scale: 1.15 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <svg 
-  xmlns="http://www.w3.org/2000/svg" 
-  viewBox="0 0 32 32" 
-  className="h-6 w-6 md:h-8 md:w-8 fill-current"
->
-  <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.76.72 5.46 2.1 7.86L1.5 31l7.36-2.1A15.4 15.4 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.58 0-5.08-.68-7.26-1.97l-.52-.31-4.38 1.25 1.25-4.27-.34-.55A12.43 12.43 0 0 1 3.5 16c0-6.89 5.61-12.5 12.5-12.5S28.5 9.11 28.5 16 22.89 28.5 16 28.5z"/>
-  <path d="M24.08 19.9c-.41-.21-2.44-1.2-2.82-1.34-.38-.14-.66-.21-.94.21-.28.41-1.08 1.34-1.32 1.61-.24.28-.49.31-.9.1-.41-.21-1.74-.64-3.32-2.05a12.3 12.3 0 0 1-2.27-2.8c-.24-.41-.02-.64.18-.84.18-.18.41-.48.62-.72.21-.24.28-.41.41-.69.14-.28.07-.52-.03-.72-.1-.21-.94-2.27-1.29-3.1-.34-.82-.69-.71-.94-.72h-.81c-.28 0-.72.1-1.1.52-.38.41-1.44 1.41-1.44 3.45s1.48 4 1.68 4.27c.21.28 2.91 4.45 7.05 6.22 4.15 1.77 4.15 1.18 4.89 1.11.74-.07 2.44-.99 2.78-1.94.34-.94.34-1.75.24-1.94-.1-.21-.38-.34-.79-.55z"/>
-</svg>
-
-    </motion.a>
-  );
+  return (
+    <motion.a
+      href="https://wa.me/+967775616333"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        fixed bottom-4 right-4 sm:bottom-6 sm:right-6 lg:bottom-8 lg:right-8 
+        z-50 p-3 sm:p-4 lg:p-5 
+        rounded-full bg-green-500 text-white shadow-lg transform
+      "
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ 
+        scale: isVisible ? 1 : 0, 
+        opacity: isVisible ? 1 : 0,
+        y: isVisible ? 0 : 50
+      }}
+      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+      whileHover={{ scale: 1.15 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 32 32" 
+        className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 fill-current"
+      >
+        <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.76.72 5.46 2.1 7.86L1.5 31l7.36-2.1A15.4 15.4 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.58 0-5.08-.68-7.26-1.97l-.52-.31-4.38 1.25 1.25-4.27-.34-.55A12.43 12.43 0 0 1 3.5 16c0-6.89 5.61-12.5 12.5-12.5S28.5 9.11 28.5 16 22.89 28.5 16 28.5z"/>
+        <path d="M24.08 19.9c-.41-.21-2.44-1.2-2.82-1.34-.38-.14-.66-.21-.94.21-.28.41-1.08 1.34-1.32 1.61-.24.28-.49.31-.9.1-.41-.21-1.74-.64-3.32-2.05a12.3 12.3 0 0 1-2.27-2.8c-.24-.41-.02-.64.18-.84.18-.18.41-.48.62-.72.21-.24.28-.41.41-.69.14-.28.07-.52-.03-.72-.1-.21-.94-2.27-1.29-3.1-.34-.82-.69-.71-.94-.72h-.81c-.28 0-.72.1-1.1.52-.38.41-1.44 1.41-1.44 3.45s1.48 4 1.68 4.27c.21.28 2.91 4.45 7.05 6.22 4.15 1.77 4.15 1.18 4.89 1.11.74-.07 2.44-.99 2.78-1.94.34-.94.34-1.75.24-1.94-.1-.21-.38-.34-.79-.55z"/>
+      </svg>
+    </motion.a>
+  );
 };
+
 
 
 const App = () => {
