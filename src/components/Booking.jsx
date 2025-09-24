@@ -50,15 +50,15 @@ const Booking = () => {
         >
           {/*  */}
           <motion.h1
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                viewport={{ once: true }}
-                                className="mb-8 text-center text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 font-black"
-                                style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', fontWeight: '500' }}
-                              >
-                       What are you waiting for?
-                              </motion.h1>
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mb-8 text-center text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 font-black"
+            style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', fontWeight: '500' }}
+          >
+            What are you waiting for?
+          </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ const Booking = () => {
           >
             Book a meeting with us today to discuss your project.
           </motion.p>
-          
+
         </motion.div>
 
         {/* ===== Cal.com Embed ===== */}
@@ -90,34 +90,10 @@ const Booking = () => {
           ></iframe>
         </motion.div>
 
-        {/* ===== Logo ===== */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="flex justify-center mt-12 pb-12"
-        >
-          <a
-            href="#home"
-            className="flex items-center space-x-2 text-xl sm:text-2xl font-bold text-black"
-          >
-            <svg
-              className="h-6 w-6"
-              viewBox="0 0 35 35"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect x="26.0465" width="8.95349" height="8.95349" fill="#18181b"></rect>
-              <rect x="26.0465" y="13.0233" width="8.95349" height="8.95349" fill="#18181b"></rect>
-              <rect x="26.0465" y="26.0465" width="8.95349" height="8.95349" fill="#18181b"></rect>
-              <rect x="13.0233" y="26.0465" width="8.95349" height="8.95349" fill="#18181b"></rect>
-              <rect x="13.0233" y="13.0233" width="8.95349" height="8.95349" fill="#18181b"></rect>
-              <rect y="26.0465" width="8.95349" height="8.95349" fill="#18181b"></rect>
-            </svg>
-            <span>BROCSA</span>
-          </a>
-        </motion.div>
+
       </div>
     </section>
   );
 };
 
-export default Booking;
+// export default Booking;
