@@ -26,8 +26,8 @@ const translations = {
       subtitle: "We are a well-equipped team of software engineers, designers, and product managers, passionate about solving real-world problems.",
       cta: "Discuss your project"
     },
-    client: "Trusted by great companies",
-    latestProjects: "Our Latest Projects",
+    client: {content:"Trusted by great companies"},
+    latestProjects: {content: "Our Latest Projects"},
     value: {
       title: "Best value for your money",
       subtitle: "We strive to deliver the best experience for you. Achieve exceptional results without straining your budget.",
@@ -97,8 +97,8 @@ const translations = {
       subtitle: "نحن فريق مجهز بالكامل من مهندسي البرمجيات والمصممين ومديري المنتجات، شغوفون بحل المشكلات الواقعية.",
       cta: "ناقش مشروعك"
     },
-    client: "شركات رائدة تثق بنا",
-    latestProjects: "أحدث مشاريعنا",
+    client: {content: "شركات رائدة تثق بنا"},
+    latestProjects: {content: "أحدث مشاريعنا"},
     value: {
       title: "أفضل قيمة مقابل أموالك",
       subtitle: "نسعى لتقديم أفضل تجربة لك. حقق نتائج استثنائية دون إرهاق ميزانيتك.",
@@ -372,12 +372,12 @@ const Hero = ({ lang }) => {
 };
 
 // --- Logos Component ---
-const ClientLogos = (lang) => {
+const ClientLogos = ({lang}) => {
   const logos = [DattaBaumLogo, MarketXLogo, PlanlogicLogo, SarimaLogo, DentrecLogo, PrivacyBrainLogo, DattaBaumLogo, MarketXLogo, PlanlogicLogo, SarimaLogo, DentrecLogo, PrivacyBrainLogo];
 
   return (
     <section className="py-12 bg-zinc-100 dark:bg-zinc-900 overflow-hidden" dir='ltr'>
-      <h2 className="text-center text-xl font-semibold mb-8 text-gray-700 dark:text-gray-300">{getTranslatedContent('client', lang)}</h2>
+      <h2 className="text-center text-xl font-semibold mb-8 text-gray-700 dark:text-gray-300">{getTranslatedContent('client.content', lang)}</h2>
       <motion.div
         className="flex space-x-12 whitespace-nowrap"
         animate={{ x: ['-100%', '0%'] }}
@@ -392,7 +392,7 @@ const ClientLogos = (lang) => {
 };
 
 // --- Project Showcase Component ---
-const ProjectShowcase = (lang) => {
+const ProjectShowcase = ({lang}) => {
   const projects = [
     'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.579e94ec.png&w=2048&q=75',
     'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F1.a80dab92.png&w=2048&q=75',
@@ -406,7 +406,7 @@ const ProjectShowcase = (lang) => {
 
   return (
     <section className="py-12 bg-zinc-50 dark:bg-zinc-950 overflow-hidden" dir='ltr'>
-      <h2 className="text-center text-3xl font-bold mb-8 text-gray-900 dark:text-gray-50">{getTranslatedContent('latestProjects', lang)}</h2>
+      <h2 className="text-center text-3xl font-bold mb-8 text-gray-900 dark:text-gray-50">{getTranslatedContent('latestProjects.content', lang)}</h2>
       <motion.div
         className="flex space-x-8"
         animate={{ x: ['0%', '-50%'] }}
@@ -1168,8 +1168,8 @@ const App = () => {
       <Navbar lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} />
       <main>
         <Hero lang={lang} />
-        <ClientLogos />
-        <ProjectShowcase />
+        <ClientLogos lang={lang}/>
+        <ProjectShowcase lang={lang}/>
         <ValueSection lang={lang} />
         <Services lang={lang} />
         <TestimonialSection lang={lang} />
