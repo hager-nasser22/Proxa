@@ -1,0 +1,37 @@
+.calcom-branding,
+.calcom-help,
+.calcom-poweredby {
+  display: none !important;
+}
+
+iframe {
+  scrollbar-width: none; /* Firefox */
+}
+
+iframe::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.bg-subtle{
+  display: none;
+}
+
+iframe main{
+  background-image: url(https://www.lineax.io/noise.png) !important;
+  background-repeat: repeat !important;
+  background-size: 200px 200px !important;
+  background-color: #eeeff2 !important;
+
+}
+.calendly-inline-widget {
+  min-width: 320px;
+  height: 700px;
+  width: 60%; /* للشاشات الكبيرة */
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .calendly-inline-widget {
+    width: 100%; /* للموبايل */
+    height: 900px;
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Building the Future with AI & Software Innovation",
+    "subtitle": "Transform your business with cutting-edge technology solutions. We create intelligent software that drives growth and innovation.",
+    "cta1": "Get Started",
+    "cta2": "View Our Work"
+  },
+  "about": {
+    "title": "About Brocsa",
+    "subtitle": "Pioneering the Future of Technology",
+    "description": "At Brocsa, we're not just a software company – we're architects of the digital future. Our team of expert developers, designers, and AI specialists work together to create solutions that transform businesses and drive innovation across industries.",
+    "stats": {
+      "projects": "500+",
+      "projectsLabel": "Projects Completed",
+      "clients": "200+",
+      "clientsLabel": "Happy Clients",
+      "years": "5+",
+      "yearsLabel": "Years Experience",
+      "team": "50+",
+      "teamLabel": "Expert Team"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive Technology Solutions",
+    "ai": {
+      "title": "AI & Machine Learning",
+      "description": "Intelligent automation and predictive analytics to optimize your business processes."
+    },
+    "web": {
+      "title": "Web & Mobile Development",
+      "description": "Custom applications that deliver exceptional user experiences across all platforms."
+    },
+    "cloud": {
+      "title": "Cloud Solutions",
+      "description": "Scalable, secure, and reliable cloud infrastructure tailored to your needs."
+    },
+    "ux": {
+      "title": "UX/UI Design",
+      "description": "Beautiful, intuitive interfaces that engage users and drive conversions."
+    }
+  },
+  "caseStudies": {
+    "title": "Case Studies",
+    "subtitle": "Success Stories That Speak Volumes",
+    "project1": {
+      "title": "E-Commerce AI Platform",
+      "description": "Revolutionized online shopping with intelligent recommendation engine"
+    },
+    "project2": {
+      "title": "Healthcare Mobile App",
+      "description": "Streamlined patient care with real-time monitoring and analytics"
+    },
+    "project3": {
+      "title": "FinTech Dashboard",
+      "description": "Advanced financial analytics platform for investment management"
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by Industry Leaders",
+    "testimonial1": {
+      "text": "Brocsa transformed our entire digital infrastructure. Their AI solutions increased our efficiency by 300%.",
+      "author": "Sarah Johnson",
+      "position": "CEO, TechCorp"
+    },
+    "testimonial2": {
+      "text": "The team's expertise in cloud architecture saved us millions in infrastructure costs.",
+      "author": "Michael Chen",
+      "position": "CTO, InnovateLabs"
+    },
+    "testimonial3": {
+      "text": "Outstanding work! Their mobile app design won us the industry award for best UX.",
+      "author": "Emily Rodriguez",
+      "position": "Product Manager, DigitalFlow"
+    }
+  },
+  "cta": {
+    "title": "Ready to Transform Your Business?",
+    "subtitle": "Let's discuss how we can help you achieve your goals with cutting-edge technology.",
+    "button": "Schedule a Call"
+  },
+  "footer": {
+    "description": "Building the future with AI & software innovation.",
+    "madeWith": "Made with React",
+    "contact": {
+      "email": "hello@brocsa.com",
+      "phone": "+1 (555) 123-4567",
+      "address": "123 Innovation Street, Tech City, TC 12345"
+    }
+  }
+}

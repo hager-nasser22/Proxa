@@ -1,0 +1,6 @@
+<svg width="220" height="40" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <text x="0" y="26" font-family="var(--font-body), ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji" font-size="16" font-weight="600" fill="#666666">
+    <tspan fill="#FFD700">✱</tspan>
+    <tspan x="20">SARIMA</tspan>
+  </text>
+</svg>
