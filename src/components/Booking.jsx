@@ -48,18 +48,28 @@ const Booking = () => {
           animate="visible"
           className="text-center mb-12 pt-12 px-4"
         >
+          {/*  */}
           <motion.h1
-            variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight"
-          >
-            What are you waiting for?
-          </motion.h1>
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                viewport={{ once: true }}
+                                className="mb-8 text-center text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 font-black"
+                                style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', fontWeight: '500' }}
+                              >
+                       What are you waiting for?
+                              </motion.h1>
           <motion.p
-            variants={itemVariants}
-            className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-xl text-gray-900 text-center mb-12 max-w-3xl mx-auto"
+            style={{ fontFamily: 'var(--font-body), ui-sans-serif, system-ui, sans-serif' }}
           >
             Book a meeting with us today to discuss your project.
           </motion.p>
+          
         </motion.div>
 
         {/* ===== Cal.com Embed ===== */}

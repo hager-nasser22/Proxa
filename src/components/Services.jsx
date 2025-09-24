@@ -68,14 +68,22 @@ const Services = () => {
           className="text-center mb-16"
         >
           <motion.h2
-            variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-          >
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className="mb-8 text-center text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 font-black"
+                      style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', fontWeight: '500' }}
+                    >
             {t('services.title')}
-          </motion.h2>
+                    </motion.h2>
           <motion.p
-            variants={itemVariants}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-xl text-gray-900 text-center mb-12 max-w-3xl mx-auto"
+            style={{ fontFamily: 'var(--font-body), ui-sans-serif, system-ui, sans-serif' }}
           >
             {t('services.subtitle')}
           </motion.p>
@@ -149,9 +157,17 @@ const Services = () => {
             variants={itemVariants}
             className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 text-white"
           >
-            <h3 className="text-2xl font-bold mb-4">
-              Don't see what you want?
-            </h3>
+
+            <motion.h3
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className="mb-8 text-center text-2xl md:text-4xl lg:text-4xl xl:text-5xl "
+                      style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', fontWeight: '500' }}
+                    >
+            Don't see what you want?
+                    </motion.h3>
             <p className="text-lg mb-6 opacity-90">
               Not sure what you need? Book a quick 15-min call now to discuss a custom solution, it's FREE.
             </p>
