@@ -1060,7 +1060,15 @@ const Footer = ({ lang }) => {
           <motion.p variants={itemVariants} className="text-gray-400 text-sm mb-4 md:mb-0">
             {getTranslatedContent('footer.copyright', lang)}
           </motion.p>
-          
+          <motion.div variants={itemVariants} className="flex items-center space-x-2 rtl:space-x-reverse text-gray-400 text-sm">
+            <span>{getTranslatedContent('footer.madeWith', lang)}</span>
+            <motion.span
+              whileHover={{ scale: 1.2, rotate: 360 }}
+              className="text-primary-500 font-semibold"
+            >
+              ❤️
+            </motion.span>
+          </motion.div>
 
         </motion.div>
       </div>
