@@ -372,7 +372,7 @@ const Hero = ({ lang }) => {
 };
 
 // --- Logos Component ---
-const ClientLogos = () => {
+const ClientLogos = (lang) => {
   const logos = [DattaBaumLogo, MarketXLogo, PlanlogicLogo, SarimaLogo, DentrecLogo, PrivacyBrainLogo, DattaBaumLogo, MarketXLogo, PlanlogicLogo, SarimaLogo, DentrecLogo, PrivacyBrainLogo];
 
   return (
@@ -392,7 +392,7 @@ const ClientLogos = () => {
 };
 
 // --- Project Showcase Component ---
-const ProjectShowcase = () => {
+const ProjectShowcase = (lang) => {
   const projects = [
     'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.579e94ec.png&w=2048&q=75',
     'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F1.a80dab92.png&w=2048&q=75',
