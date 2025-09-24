@@ -341,13 +341,24 @@ const Hero = ({ lang }) => {
           </motion.p>
 
           <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-black dark:bg-white text-white dark:text-black px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl text-sm sm:text-base lg:text-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 shadow-lg inline-block"
-          >
-            {getTranslatedContent('hero.cta', lang)}
-          </motion.a>
+  href="#contact"
+  whileHover={{ scale: 1.07, y: -3 }}
+  whileTap={{ scale: 0.95 }}
+  className="relative overflow-hidden bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 
+             text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 rounded-2xl 
+             text-sm sm:text-base lg:text-lg font-semibold 
+             shadow-lg shadow-indigo-500/30 
+             hover:shadow-xl hover:shadow-purple-500/40 
+             transition-all duration-300 ease-out inline-block"
+>
+  <span className="relative z-10">
+    {getTranslatedContent('hero.cta', lang)}
+  </span>
+
+  {/* طبقة إضاءة عند الـ hover */}
+  <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></span>
+</motion.a>
+
         </motion.div>
       </div>
     </section>
