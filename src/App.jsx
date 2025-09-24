@@ -18,6 +18,7 @@ const translations = {
       services: "Services",
       caseStudies: "Case Studies",
       testimonials: "Testimonials",
+      testimonialsHeader: "What our clients say?",
       contact: "Contact"
     },
     hero: {
@@ -86,6 +87,7 @@ const translations = {
       services: "خدماتنا",
       caseStudies: "دراسات حالة",
       testimonials: "شهادات العملاء",
+      testimonialsHeader: "ماذا يقول عملاؤنا؟",
       contact: "تواصل معنا"
     },
     hero: {
@@ -769,15 +771,17 @@ const TestimonialSection = ({ lang }) => {
   return (
     <section id="testimonials" className="py-20 bg-zinc-50 dark:bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-gray-50 mb-16"
-        >
-          {getTranslatedContent('nav.testimonials', lang)}
-        </motion.h2>
+
+<motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mb-8 text-center text-3xl md:text-4xl lg:text-5xl text-gray-900  font-bold"
+            style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}
+          >
+            {getTranslatedContent('nav.testimonialsHeader', lang)}
+          </motion.h2>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -995,7 +999,7 @@ const Footer = ({ lang }) => {
           <motion.div variants={itemVariants} className="lg:col-span-2">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-3xl font-bold gradient-text mb-4"
+              className="text-3xl font-bold gradient-text mb-4 "
             >
               BROCSA
             </motion.div>
