@@ -79,7 +79,8 @@ const translations = {
       contactPhone: "⁦+967 775 616 333⁩",
       contactAddress: "El Yaman",
       copyright: "© 2024 Brocsa. All rights reserved.",
-      madeWith: "Made with"
+      certificate: "Certified by the Yemeni Ministry of Commerce",
+      certificateNumber: "#1196",
     }
   },
   ar: {
@@ -150,7 +151,8 @@ const translations = {
       contactPhone: "+20 100 123 4567",
       contactAddress: "123 Main St, New York, NY 10030",
       copyright: "© 2024 Brocsa. جميع الحقوق محفوظة.",
-      madeWith: "صنع بـ"
+      certificate: "موثق من وزارة التجارة اليمنية",
+      certificateNumber: "#1196",
     }
   }
 };
@@ -410,7 +412,7 @@ const ProjectShowcase = ({lang}) => {
       <motion.div
         className="flex space-x-8"
         animate={{ x: ['0%', '-50%'] }}
-        transition={{ duration: 40, ease: 'linear', repeat: Infinity }}
+        transition={{ duration: 10, ease: 'linear', repeat: Infinity }}
       >
         {doubledProjects.map((image, index) => (
           <div key={index} className="flex-shrink-0">
@@ -945,7 +947,7 @@ const Footer = ({ lang }) => {
       },
     },
   };
-
+const [isModalOpen, setIsModalOpen] = useState(false);
   const socialLinks = [
     { name: 'Twitter', icon: '𝕏', href: '#' },
     { name: 'LinkedIn', icon: 'in', href: '#' },
@@ -1075,26 +1077,74 @@ const Footer = ({ lang }) => {
 
     {/* Bottom Bar */}
     <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-center md:justify-between items-center text-center"
-    >
-      <motion.p variants={itemVariants} className="text-gray-400 text-sm mb-4 md:mb-0">
-        {getTranslatedContent('footer.copyright', lang)}
-      </motion.p>
-      <motion.div variants={itemVariants} className="flex items-center space-x-2 rtl:space-x-reverse text-gray-400 text-sm">
-        <span>{getTranslatedContent('footer.madeWith', lang)}</span>
-        <motion.span
-          whileHover={{ scale: 1.2, rotate: 360 }}
-          className="text-primary-500 font-semibold"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-center md:justify-between items-center text-center"
         >
-          ❤️
-        </motion.span>
-      </motion.div>
-    </motion.div>
+          <motion.p
+            variants={itemVariants}
+            className="text-gray-400 text-sm mb-4 md:mb-0"
+          >
+            {getTranslatedContent("footer.copyright", lang)}
+          </motion.p>
+
+          {/* زر فتح المودال */}
+          <motion.button
+  onClick={() => setIsModalOpen(true)}
+  variants={itemVariants}
+  className="
+    flex items-center space-x-2 rtl:space-x-reverse
+    bg-gradient-to-r from-primary-600 to-primary-400
+    text-white font-semibold text-sm md:text-base
+    px-3 py-1.5 rounded-lg shadow-md
+    hover:from-primary-500 hover:to-primary-300
+    transition-all duration-300 cursor-pointer
+  "
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    className="w-4 h-4 md:w-5 md:h-5"
+  >
+    <path d="M9 12l2 2 4-4m1-2a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg>
+  <span>{getTranslatedContent('footer.certificate', lang)}</span>
+  <span className="ml-1">{getTranslatedContent('footer.certificateNumber', lang)}</span>
+</motion.button>
+
+
+
+
+        </motion.div>
   </div>
+  {isModalOpen && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-zinc-900 rounded-xl shadow-xl max-w-lg w-full relative">
+            {/* زر الإغلاق */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 dark:hover:text-gray-300"
+            >
+              ✕
+            </button>
+
+            {/* صورة الوثيقة */}
+            <div className="p-6">
+              <h2 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                {getTranslatedContent('footer.certificate', lang)}
+              </h2>
+              <img
+                src="certificate.jpeg" // ضع صورة الوثيقة هنا
+                alt={getTranslatedContent('footer.certificate', lang)}
+                className="rounded-lg shadow-lg w-full"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 </footer>
 
   );
@@ -1132,7 +1182,7 @@ const WhatsAppButton = () => {
       whileTap={{ scale: 0.95 }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
-        className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 fill-current">
+        className="h-7 w-7 sm:h-6 sm:w-6 lg:h-7 lg:w-7 fill-current">
         <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.76.72 5.46 2.1 7.86L1.5 31l7.36-2.1A15.4 15.4 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.58 0-5.08-.68-7.26-1.97l-.52-.31-4.38 1.25 1.25-4.27-.34-.55A12.43 12.43 0 0 1 3.5 16c0-6.89 5.61-12.5 12.5-12.5S28.5 9.11 28.5 16 22.89 28.5 16 28.5z"/>
         <path d="M24.08 19.9c-.41-.21-2.44-1.2-2.82-1.34-.38-.14-.66-.21-.94.21-.28.41-1.08 1.34-1.32 1.61-.24.28-.49.31-.9.1-.41-.21-1.74-.64-3.32-2.05a12.3 12.3 0 0 1-2.27-2.8c-.24-.41-.02-.64.18-.84.18-.18.41-.48.62-.72.21-.24.28-.41.41-.69.14-.28.07-.52-.03-.72-.1-.21-.94-2.27-1.29-3.1-.34-.82-.69-.71-.94-.72h-.81c-.28 0-.72.1-1.1.52-.38.41-1.44 1.41-1.44 3.45s1.48 4 1.68 4.27c.21.28 2.91 4.45 7.05 6.22 4.15 1.77 4.15 1.18 4.89 1.11.74-.07 2.44-.99 2.78-1.94.34-.94.34-1.75.24-1.94-.1-.21-.38-.34-.79-.55z"/>
       </svg>
@@ -1154,11 +1204,11 @@ const TelegramButton = () => {
 
   return (
     <motion.a
-      href="https://t.me/yourTelegramUsername"
+      href="https://t.me/Procsa123"
       target="_blank"
       rel="noopener noreferrer"
       className="
-        fixed bottom-14 right-4 sm:bottom-16 sm:right-5 lg:bottom-20 lg:right-6
+        fixed bottom-20 right-4 sm:bottom-24 sm:right-5 lg:bottom-28 lg:right-6
         z-50 p-2 sm:p-2.5 lg:p-3
         rounded-full bg-sky-500 text-white shadow-lg transform
         animate-[pulseGlow_2s_infinite]
@@ -1170,7 +1220,7 @@ const TelegramButton = () => {
       whileTap={{ scale: 0.95 }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
-        className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 fill-current">
+        className="h-7 w-7 sm:h-6 sm:w-6 lg:h-7 lg:w-7 fill-current">
         <path d="M248,8C111,8,0,119,0,256s111,248,248,248S496,393,496,256,385,8,248,8ZM372.2,164.6,320.4,364.8c-3.7,14.6-13.4,18.2-27.2,11.4l-75.2-55.6-36.3,34.9c-4,4-7.3,7.3-15,7.3l5.4-76.5,138.9-125.2c6-5.4-1.3-8.4-9.3-3l-171.8,108-74-23.1c-16.1-5.1-16.4-16.1,3.3-23.9L361,141.3C373.7,136.5,383.5,144.3,372.2,164.6Z"/>
       </svg>
     </motion.a>
