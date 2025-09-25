@@ -388,24 +388,75 @@ const Hero = ({ lang }) => {
 };
 
 // --- Logos Component ---
-const ClientLogos = ({lang}) => {
-  const logos = [DattaBaumLogo, MarketXLogo, PlanlogicLogo, SarimaLogo, DentrecLogo, PrivacyBrainLogo, DattaBaumLogo, MarketXLogo, PlanlogicLogo, SarimaLogo, DentrecLogo, PrivacyBrainLogo];
+const ClientLogos = ({ lang }) => {
+  const logos = [
+    DattaBaumLogo, MarketXLogo, PlanlogicLogo,
+    SarimaLogo, DentrecLogo, PrivacyBrainLogo,
+  ];
 
-  return (
-    <section className="py-12 bg-zinc-100 dark:bg-zinc-900 overflow-hidden" dir='ltr'>
-      <h2 className="text-center text-xl font-semibold mb-8 text-gray-700 dark:text-gray-300">{getTranslatedContent('client.content', lang)}</h2>
-      <motion.div
-        className="flex space-x-12 whitespace-nowrap"
-        animate={{ x: ['-100%', '0%'] }}
-        transition={{ duration: 10, ease: 'linear', repeat: Infinity }}
-      >
-        {logos.map((logo, i) => (
-          <img key={i} src={logo} alt={`Client logo ${i + 1}`} className="h-16 w-auto opacity-70 dark:invert hover:opacity-100 transition-opacity duration-200 flex-shrink-0" />
-        ))}
-      </motion.div>
-    </section>
-  );
+  // نكرر اللوجوهات مرتين
+   const doubledLogos = [...logos, ...logos];
+  const trackRef = useRef(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return; // تأكد من وجود العنصر
+
+    let scrollAmount = 0;
+    let animationFrameId;
+
+    const scroll = () => {
+      scrollAmount -= 3; // يتحكم في سرعة الحركة
+
+      // عندما يصل إلى نهاية المجموعة الأولى، يعود إلى البداية
+      if (Math.abs(scrollAmount) >= track.scrollWidth / 2) {
+        scrollAmount = 0;
+      }
+      
+      track.style.transform = `translateX(${scrollAmount}px)`;
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+    
+    // تأكد من أن الصور تم تحميلها بالكامل قبل بدء الحركة
+    const imagesLoaded = Array.from(track.querySelectorAll('img')).map(img => new Promise(resolve => {
+        if (img.complete) {
+            resolve();
+        } else {
+            img.onload = resolve;
+        }
+    }));
+
+    Promise.all(imagesLoaded).then(() => {
+        scroll();
+    });
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <section className="py-12 bg-zinc-100 dark:bg-zinc-900 overflow-hidden" dir="ltr">
+      <h2 className="text-center text-xl font-semibold mb-8 text-gray-700 dark:text-gray-300">
+        {getTranslatedContent("client.content", lang)}
+      </h2>
+      <div className="overflow-hidden relative">
+        <div className="flex space-x-12 whitespace-nowrap" ref={trackRef}>
+          {doubledLogos.map((logo, i) => (
+            <img
+              key={i}
+              src={logo}
+              alt={`Client logo ${i + 1}`}
+              className="h-16 w-auto opacity-70 dark:invert hover:opacity-100 transition-opacity duration-200 flex-shrink-0"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
+
+
 
 // --- Project Showcase Component ---
 const ProjectShowcase = ({lang}) => {
@@ -418,25 +469,68 @@ const ProjectShowcase = ({lang}) => {
     'project-6.webp',
   ];
 
-  const doubledProjects = [...projects, ...projects];
+  // اعكس المصفوفة وكررها
+    const reversedProjects = [...projects].reverse();
+    const doubledProjects = [...reversedProjects, ...reversedProjects];
+    
+    const trackRef = useRef(null);
 
-  return (
-    <section className="py-12 bg-zinc-50 dark:bg-zinc-950 overflow-hidden" dir='ltr'>
-      <h2 className="text-center text-3xl font-bold mb-8 text-gray-900 dark:text-gray-50">{getTranslatedContent('latestProjects.content', lang)}</h2>
-      <motion.div
-        className="flex space-x-8"
-        animate={{ x: ['0%', '-50%'] }}
-        transition={{ duration: 5, ease: 'linear', repeat: Infinity }}
-      >
-        {doubledProjects.map((image, index) => (
-          <div key={index} className="flex-shrink-0">
-            <div className="w-80 h-56 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <img src={image} alt={`Project ${index + 1}`} className="w-full h-full object-cover" />
-            </div>
-          </div>
-        ))}
-      </motion.div>
-    </section>
+    useEffect(() => {
+        const track = trackRef.current;
+        if (!track) return;
+
+        let scrollAmount = 0;
+        let animationFrameId;
+
+        // ابدأ الحركة من موضع مناسب
+        // track.scrollWidth / 2 هي المسافة التي نحتاجها لإخفاء المجموعة الأولى من الصور
+        // ثم نرجع للخلف قليلا لتبدأ الحركة من أول صورة بشكل صحيح
+        scrollAmount = -track.scrollWidth / 2;
+
+        const scroll = () => {
+            scrollAmount += 3; // يتحرك لليمين
+
+            // عندما يصل إلى نهاية المجموعة الثانية، يعود إلى البداية
+            if (scrollAmount >= 0) {
+                scrollAmount = -track.scrollWidth / 2;
+            }
+            
+            track.style.transform = `translateX(${scrollAmount}px)`;
+            animationFrameId = requestAnimationFrame(scroll);
+        };
+
+        const imagesLoaded = Array.from(track.querySelectorAll('img')).map(img => new Promise(resolve => {
+            if (img.complete) {
+                resolve();
+            } else {
+                img.onload = resolve;
+            }
+        }));
+
+        Promise.all(imagesLoaded).then(() => {
+            scroll();
+        });
+
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, []);
+
+    return (
+        <section className="py-12 bg-zinc-50 dark:bg-zinc-950 overflow-hidden" dir='ltr'>
+            <h2 className="text-center text-3xl font-bold mb-8 text-gray-900 dark:text-gray-50">{getTranslatedContent('latestProjects.content', lang)}</h2>
+            <div className="overflow-hidden relative">
+                <div className="flex space-x-8 whitespace-nowrap" ref={trackRef}>
+                    {doubledProjects.map((image, index) => (
+                        <div key={index} className="flex-shrink-0">
+                            <div className="w-80 h-56 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
+                                <img src={image} alt={`Project ${index + 1}`} className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
   );
 };
 
@@ -1286,7 +1380,7 @@ const TelegramButton = () => {
 
 
 const App = () => {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState('ar');
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
