@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import CountUp from "react-countup";
+
 import './App.css';
 // Logos
 const DattaBaumLogo = 'dbs.4e4201d0.svg';
@@ -71,6 +73,12 @@ const translations = {
       title: "What are you waiting for?",
       subtitle: "Book a meeting with us today to discuss your project."
     },
+  stats: {
+    projects: "Delivered Projects",
+    customers: "Satisfied Customers",
+    countries: "Countries Served",
+    industries: "Industries Served"
+  },
     footer: {
       description: "We are a team of passionate engineers, designers, and product managers.",
       quickLinks: "Quick Links",
@@ -130,6 +138,12 @@ const translations = {
       ctaTitle: "لم تجد ما تريد؟",
       ctaSubtitle: "لست متأكداً مما تحتاجه؟ احجز مكالمة سريعة لمدة 15 دقيقة الآن لمناقشة حل مخصص، إنها مجانية.",
       ctaButton: "احجز مكالمة استكشافية"
+    },
+   stats: {
+      projects: "المشاريع المنجزة",
+      customers: "العملاء الراضون",
+      countries: "الدول المخدومة",
+      industries: "القطاعات المخدومة"
     },
     testimonials: {
       quote1: "“إذا كان بإمكاننا إعطاء Brocsa تقييماً، فسيكون 12/10. لقد تجاوزوا توقعاتنا بكل الطرق.”",
@@ -529,7 +543,48 @@ const ValueSection = ({ lang }) => {
     </section>
   );
 };
+const StatsSection = ({ lang }) => {
+  const stats = [
+    { number: 100, label: getTranslatedContent("stats.projects", lang) },
+    { number: 80, label: getTranslatedContent("stats.customers", lang) },
+    { number: 12, label: getTranslatedContent("stats.countries", lang) },
+    { number: 15, label: getTranslatedContent("stats.industries", lang) },
+  ];
 
+  return (
+    <section className="bg-gradient-to-r from-indigo-50 to-blue-50 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+          {stats.map((stat, i) => {
+            const [startCount, setStartCount] = useState(false);
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.2 }}
+                onViewportEnter={() => setStartCount(true)} // يبدأ العد أول ما يدخل الشاشة
+                className="bg-white rounded-2xl shadow-md md:shadow-lg p-6 sm:p-8 text-center"
+              >
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-indigo-600 mb-2">
+                  {startCount && (
+                    <CountUp start={0} end={stat.number} duration={3} />
+                  )}
+                  +
+                </h3>
+                <p className="text-sm sm:text-base md:text-lg text-gray-600 font-medium">
+                  {stat.label}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
 // --- Services Component (OLD, Preferred) ---
 const Services = ({ lang }) => {
   const ref = useRef(null);
@@ -1252,6 +1307,7 @@ const App = () => {
         <ClientLogos lang={lang}/>
         <ProjectShowcase lang={lang}/>
         <ValueSection lang={lang} />
+        <StatsSection lang={lang} />
         <Services lang={lang} />
         <TestimonialSection lang={lang} />
         <Booking lang={lang} />
