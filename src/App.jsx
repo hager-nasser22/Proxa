@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import './App.css';
 // Logos
-const DattaBaumLogo = 'https://www.lineax.io/_next/static/media/dbs.4e4201d0.svg';
-const MarketXLogo = 'https://www.lineax.io/_next/static/media/marketx.6554d241.svg';
-const PlanlogicLogo = 'https://www.lineax.io/_next/static/media/planlogic.f1680d5f.svg';
-const SarimaLogo = 'https://www.lineax.io/_next/static/media/sarima.68b8148d.svg';
-const DentrecLogo = 'https://www.lineax.io/_next/static/media/dentrec.b3a62da6.svg';
-const PrivacyBrainLogo = 'https://www.lineax.io/_next/static/media/privacybrain.2eabb277.svg';
+const DattaBaumLogo = 'dbs.4e4201d0.svg';
+const MarketXLogo = 'marketx.6554d241.svg';
+const PlanlogicLogo = 'planlogic.f1680d5f.svg';
+const SarimaLogo = 'sarima.68b8148d.svg';
+const DentrecLogo = 'dentrec.b3a62da6.svg';
+const PrivacyBrainLogo = 'privacybrain.2eabb277.svg';
 
 // Simple language and theme context (without i18n library)
 const translations = {
@@ -394,12 +394,12 @@ const ClientLogos = ({lang}) => {
 // --- Project Showcase Component ---
 const ProjectShowcase = ({lang}) => {
   const projects = [
-    'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.579e94ec.png&w=2048&q=75',
-    'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F1.a80dab92.png&w=2048&q=75',
-    'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F2.b73fea82.png&w=2048&q=75',
-    'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F4.447a8ad1.png&w=2048&q=75',
-    'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F1.94c1d70a.png&w=2048&q=75',
-    'https://www.lineax.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F1.5a4ea7af.png&w=2048&q=75',
+    'project-1.webp',
+    'project-2.webp',
+    'project-3.webp',
+    'project-4.webp',
+    'project-5.webp',
+    'project-6.webp',
   ];
 
   const doubledProjects = [...projects, ...projects];
@@ -471,7 +471,7 @@ const ValueSection = ({ lang }) => {
           viewport={{ once: true }}
           className="bg-zinc-100 dark:bg-zinc-900 rounded-3xl p-12 pb-20 md:p-16 lg:p-20 shadow-xl"
           style={{
-            backgroundImage: 'url(https://www.lineax.io/noise.png)',
+            backgroundImage: 'url(noise.png)',
             backgroundRepeat: 'repeat',
             backgroundSize: '200px 200px'
           }}
@@ -863,7 +863,7 @@ const Booking = ({ lang }) => {
       <div
         className="relative max-w-7xl mx-auto w-full z-30 rounded-3xl p-8 md:p-12 lg:p-20"
         style={{
-          backgroundImage: "url(https://www.lineax.io/noise.png)",
+          backgroundImage: "url(noise.png)",
           backgroundRepeat: "repeat",
           backgroundSize: "200px 200px",
           backgroundColor: "#eeeff2",
@@ -906,7 +906,7 @@ const Booking = ({ lang }) => {
           className="flex justify-center"
         >
           <iframe
-            src="https://cal.com/hager-nasser-woynen/secret"
+            src="https://cal.com/mohammed-alhazi/30min"
             className="w-full sm:w-[90%] md:w-[80%] lg:w-[90%] h-[350px] sm:h-[500px] md:h-[550px] lg:h-[750px] rounded-2xl shadow-lg"
             frameBorder="0"
             style={{
