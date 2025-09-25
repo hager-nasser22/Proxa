@@ -163,7 +163,7 @@ const translations = {
       contactInfo: "معلومات الاتصال",
       contactEmail: "Procsa123@gmail.com",
       contactPhone: "⁦+967 775 616 333⁩",
-      contactAddress: "123 Main St, New York, NY 10030",
+      contactAddress: "اليمن",
       copyright: "© 2024 Brocsa. جميع الحقوق محفوظة.",
       certificate: "موثق من وزارة التجارة اليمنية",
       certificateNumber: "#1196",
