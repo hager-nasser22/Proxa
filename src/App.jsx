@@ -838,7 +838,7 @@ const TestimonialSection = ({ lang }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mb-8 text-center text-3xl md:text-4xl lg:text-5xl text-gray-900  font-bold"
+            className="mb-8 text-center text-3xl md:text-4xl lg:text-5xl text-gray-900  font-bold dark:text-white"
             style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}
           >
             {getTranslatedContent('nav.testimonialsHeader', lang)}
