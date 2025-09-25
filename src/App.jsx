@@ -397,7 +397,7 @@ const ClientLogos = ({lang}) => {
       <motion.div
         className="flex space-x-12 whitespace-nowrap"
         animate={{ x: ['-100%', '0%'] }}
-        transition={{ duration: 30, ease: 'linear', repeat: Infinity }}
+        transition={{ duration: 10, ease: 'linear', repeat: Infinity }}
       >
         {logos.map((logo, i) => (
           <img key={i} src={logo} alt={`Client logo ${i + 1}`} className="h-16 w-auto opacity-70 dark:invert hover:opacity-100 transition-opacity duration-200 flex-shrink-0" />
@@ -426,7 +426,7 @@ const ProjectShowcase = ({lang}) => {
       <motion.div
         className="flex space-x-8"
         animate={{ x: ['0%', '-50%'] }}
-        transition={{ duration: 10, ease: 'linear', repeat: Infinity }}
+        transition={{ duration: 5, ease: 'linear', repeat: Infinity }}
       >
         {doubledProjects.map((image, index) => (
           <div key={index} className="flex-shrink-0">
